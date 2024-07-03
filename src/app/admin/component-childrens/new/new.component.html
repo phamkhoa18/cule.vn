@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>QUẢN LÝ THÔNG TIN BÀI VIẾT ( NEWS )</mat-card-title>
+    <mat-card-subtitle>Được phát triển bởi Drto.vn</mat-card-subtitle>
+
+    <button mat-raised-button color="warn" routerLink="add" >Thêm bài viết</button>
+    <br>
+    <br>
+
+    <mat-table #table [dataSource]="dataSource">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Number Column -->
+      <ng-container matColumnDef="number">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index; ">
+          <div>{{ i + 1 }}</div>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Tên bài viết </mat-header-cell>
+        <mat-cell *matCellDef="let element , let i = index" >
+            {{element.name}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef> Hình ảnh </mat-header-cell>
+        <mat-cell *matCellDef="let element , let i = index" >
+              <img style="width: 100%; height: 130px;" [src]="this.apiService.URL + '/' + element.image" alt="">
+        </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.category.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="link">
+        <mat-header-cell *matHeaderCellDef> Link </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.link}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+
+      <!-- Thêm cột tác vụ -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Tác vụ </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" style="margin-right: 5px;" routerLink="edit/{{element._id}}">Edit</button>
+          <button mat-raised-button color="warn" (click)="removeItem(element)">Xóa</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>

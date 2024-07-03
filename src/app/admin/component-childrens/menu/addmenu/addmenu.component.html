@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>THÊM MỚI MENU ( ADD MENUS )</mat-card-title>
+    <mat-card-subtitle>Được phát triển bởi nhasuhoc.edu.vn</mat-card-subtitle>
+
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+      <mat-card-content style="padding-bottom: 0;">
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <input matInput type="text" formControlName="name"  placeholder="Tiêu đề .... ">
+            </mat-form-field>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <input matInput type="text" formControlName="link"  placeholder="Địa chỉ Href .... ">
+            </mat-form-field>
+          </div>
+
+
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <mat-select placeholder="Vị trí hiển thị danh mục" formControlName="categoryId">
+                <mat-option disabled>Vui lòng chọn vị trí hiển thị danh mục</mat-option>
+                <mat-option [value]="null">Danh mục không liên kết</mat-option>
+                <mat-option *ngFor="let item of listselectdanhmuc" [value]="item._id">{{item.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <mat-select placeholder="Vị trí cha-con menu" formControlName="parentId">
+                <mat-option disabled>Vui lòng chọn cha-con menu</mat-option>
+                <mat-option [value]="null">Menu không liên kết</mat-option>
+                <mat-option *ngFor="let item of listselectmenu" [value]="item._id">{{item.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+
+
+    <mat-card-content>
+      <button mat-raised-button color="primary" type="submit"  [disabled]="!itemForm.valid" style="margin-right: 5px;">Submit</button>
+    </mat-card-content>
+  </form>
+  </mat-card-content>
+</mat-card>

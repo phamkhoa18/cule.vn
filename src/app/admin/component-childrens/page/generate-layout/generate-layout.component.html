@@ -1,0 +1,42 @@
+<div class="generate-layout">
+  <div cdkDropList class="page-builder" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let section of sections" cdkDrag class="section">
+      <mat-card>
+        <mat-card-content>
+          <div class="section-toolbar d-flex" style="align-items: center;">
+            <span style="font-weight: bolder; margin-right: 10px;">{{ section.name }}</span>
+
+            <div class="layout-button">
+              <span class="information">
+                <img style="width: 25px;" src="../../../../../assets/layout.png" alt="">
+              </span>
+
+              <div class="list-item-layout d-flex showlayout" style="margin-left: 20px; align-items: center;">
+                <div class="item" *ngFor="let item of layouts">
+                  <button (click)="editlayoutSection(section, item)" mat-stroked-button style="margin-right: 5px;">{{ item.name }}</button>
+                </div>
+              </div>
+            </div>
+            <button (click)="removeSection(section)" mat-raised-button style="margin-right: 5px;">Delete</button>
+
+          </div>
+          <div class="section-columns">
+            <div *ngFor="let row of section.rows" class="section-row" [ngClass]="getLayoutClass(section.layout)">
+              <div *ngFor="let column of row.columns" class="section-column">
+                <mat-card>
+                  <mat-card-content>
+                    <app-columns></app-columns>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="control-button d-flex">
+    <button mat-raised-button (click)="addSection()" class="button-section">Add Section</button>
+  </div>
+</div>

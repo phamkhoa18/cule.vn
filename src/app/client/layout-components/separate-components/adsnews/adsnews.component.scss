@@ -1,0 +1,65 @@
+*{
+  font-family: 'cule-regular' !important;
+}
+.image_ads {
+    padding-right: 8px;
+    width: 25%;
+}
+
+.image_ads_over {
+    border-radius: 4px;
+    overflow: hidden;
+  position: relative;
+}
+
+.item_image {
+  padding-top: 100%;
+
+  img {
+      object-fit: contain;
+      transition-duration: .5s;
+      object-fit: cover !important;
+      height: 100%;
+      left: 0;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+  }
+}
+
+
+.content_ads {
+  width: 75%;
+}
+
+.date_ads {
+    font-weight: 400;
+    font-size: 12px;
+    white-space: pre;
+    align-items: center;
+    display: flex;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    margin-bottom: 4px;
+    color: black;
+}
+
+.title_ads {
+    line-height: 1.4;
+    font-weight: 600;
+    font-size: 14px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    margin: 0;
+}
+
+.item_ads {
+  gap: 0 !important;
+}

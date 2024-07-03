@@ -1,0 +1,105 @@
+.item_detail_layout_1 {
+  width: calc(100% - 320px);
+  padding-right: 16px;
+}
+
+.duration-500 {
+  transition-duration: .5s;
+}
+
+
+
+@media (max-width: 990px) {
+  ._md\:pr-0 {
+      padding-right: 0;
+  }
+}
+@media (max-width: 990px) {
+  ._md\:w-full {
+      width: 100% !important;
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  ._md\:pt-20 {
+    padding-top: 20% !important;
+  }
+
+  .md\:d-none {
+    display: none;
+  }
+}
+
+
+
+
+.item_detail_layout_2 {
+  width: 320px;
+}
+
+.header_detail {
+    padding-right: 60px;
+    margin-bottom: 16px;
+}
+
+.title_detail {
+    line-height: 1.2;
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 12px;
+    font-family: 'cule-bold' !important;
+}
+
+.capitalize {
+  text-transform: capitalize;
+  color: black;
+}
+
+
+
+@media screen and (max-width: 950px) {
+    .header_detail {
+      padding-right: 0;
+    }
+
+    .title_detail {
+      font-size: 28px;
+    }
+}
+
+
+.render-content {
+  text-align: justify;
+  word-break: normal;
+  word-wrap: break-word;
+  vertical-align: baseline;
+
+  p {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+.render-content:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    font-size: 1.1rem !important;
+    line-height: 2rem !important;
+    color: #333;
+}
+
+
+.image {
+  max-height: 550px; /* Chiều cao tối đa của container */
+  overflow: hidden; /* Ẩn phần bị tràn ra nếu ảnh lớn hơn */
+  position: relative; /* Cần thiết để áp dụng cho con */
+}
+
+.image img {
+  width: 100%; /* Ảnh chiếm toàn bộ chiều rộng của container */
+  height: auto; /* Chiều cao tự động điều chỉnh để giữ tỉ lệ */
+  display: block; /* Đảm bảo hiển thị đúng dạng block */
+  object-fit: cover; /* Đảm bảo ảnh không bị bóp méo */
+}
+
+p {
+  color: black !important;
+}

@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>THÊM MỚI BÀI VIẾT ( ADD NEWS )</mat-card-title>
+    <mat-card-subtitle>Được phát triển bởi Drto.vn</mat-card-subtitle>
+
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+      <mat-card-content style="padding-bottom: 0;">
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <input matInput type="text" formControlName="name"  placeholder="Tiêu đề .... ">
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <input type="file" style="    padding-top: 16px;
+              padding-bottom: 16px;" class="form-control" (change)="onFileSelected($event)" name="" id="" placeholder="" aria-describedby="fileHelpId">
+            </div>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <mat-select placeholder="Vị trí bài viết" formControlName="category">
+                <mat-option disabled>Vui lòng chọn vị trí hiển thị bài viết</mat-option>
+                <mat-option *ngFor="let item of listselectdanhmuc" [value]="item._id">{{item.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="mb-3">
+              <input matInput type="text" formControlName="author"  placeholder="Tác giả">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+
+    <mat-card-content>
+      <ckeditor [editor]="Editor" name="content" formControlName="content" (ready)="onReady($event)" ></ckeditor>
+    </mat-card-content>
+    
+    <mat-card-content>
+      <button mat-raised-button color="primary" type="submit"  [disabled]="!itemForm.valid" style="margin-right: 5px;">Submit</button>
+    </mat-card-content>
+  </form>
+  </mat-card-content>
+</mat-card>

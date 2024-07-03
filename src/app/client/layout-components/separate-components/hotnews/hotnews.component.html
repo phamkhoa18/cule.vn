@@ -1,0 +1,19 @@
+<section class="hot_news header_section">
+        <div class="header_title_section d-flex justify-content-center">
+            <h4>Tin Nóng</h4>
+        </div>
+        <div class="body_section body_hot_news">
+            <div class="body_container_section">
+                <div class="item_section" *ngFor="let item of listnew; let i = index">
+                    <div class="title_item_section">
+                      <p class="font-notoR font-bold italic text-leading text-black-3 ">{{i + 1}}</p>
+                    </div>
+                    <div class="content_item_section">
+                      <h3 class="line-clamp-3 group-hover:text-red" >{{item.name}}</h3>
+
+                    </div>
+                    <a class="absoluteFull"  routerLink="/{{item.link}}" title="{{item.name}}" ></a>
+                </div>
+            </div>
+        </div>
+</section>

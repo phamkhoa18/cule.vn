@@ -1,0 +1,26 @@
+<section class="hot_news header_section">
+  <div class="header_title_section d-flex justify-content-center">
+      <h4>Tin Mới Nhất</h4>
+  </div>
+  <div class="body_section body_hot_news">
+      <div class="body_container_section">
+          <div class="item_ads item_section" *ngFor="let item of listnew" routerLink="/{{item.link}}">
+              <div class="image_ads">
+                <div class="image_ads_over">
+                  <div class="item_image">
+                    <img width="315" height="216" class="jsx-4162024654 duration-500 absFull duration-300 group-hover:scale-110" src="{{this.api.URL + '/' + item.image}}" >
+                  </div>
+                </div>
+
+              </div>
+              <div class="content_ads">
+                <p class="date_ads">
+                  {{this.getDatePublicPost(item.publish_date)}}
+                  <span class="category_ads">|</span>{{this.title}}</p>
+
+                  <h3 class="title_ads group-hover:text-red">{{item.name}}</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

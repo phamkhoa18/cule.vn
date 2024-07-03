@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>THAY ĐỔI VỊ TRÍ MENU ( INDEX MENUS )</mat-card-title>
+    <mat-card-subtitle>Được phát triển bởi nhasuhoc.edu.vn</mat-card-subtitle>
+
+    <mat-card-content style="padding-bottom: 0;">
+
+    <div class="card">
+      <div class="card-body p-4">
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of listmenu" cdkDrag>{{item.name}}</div>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-content>
+    <button mat-raised-button color="primary" type="submit" (click)="save()" style="margin-right: 5px;">Submit</button>
+  </mat-card-content>
+
+  </mat-card-content>
+</mat-card>

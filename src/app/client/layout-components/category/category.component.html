@@ -1,0 +1,66 @@
+<div class="category section_pd">
+    <div class="container">
+        <div class="header_category">
+              <div class="header_category_container container">
+                 <div class="d-flex align-items-center ">
+                    <div class="title_category">
+                      <h4>{{item.name}}</h4>
+                  </div>
+                  <div class="search_category md:d-none">
+                      <div class="form-search d-flex align-items-center">
+                          <input type="text" placeholder="Tim kiem" class="seach-input">
+                          <button class="button-search">
+                            <span role="img" class="anticon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="inherit"><path d="M0 9.33162C0 14.4752 4.18787 18.6632 9.33126 18.6632C11.5661 18.6632 13.6143 17.8794 15.2221 16.5636L22.6563 24L24 22.6572L16.5639 15.2217C17.9253 13.5611 18.6672 11.479 18.6625 9.33162C18.6625 4.18803 14.4747 0 9.33126 0C4.18787 0 0 4.18803 0 9.33162ZM1.86625 9.33162C1.86625 5.19771 5.19751 1.86632 9.33126 1.86632C13.465 1.86632 16.7963 5.19771 16.7963 9.33162C16.7963 13.4655 13.465 16.7969 9.33126 16.7969C5.19751 16.7969 1.86625 13.4655 1.86625 9.33162Z" fill="currentColor"></path></svg></span>
+                          </button>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+        </div>
+        <div class="body_category">
+            <div class="body_category_container d-flex flex-wrap">
+                  <div class="body_1 _md:pr-0 _md:w-full">
+                      <div class="list-item" *ngIf="listnew.length; else loading">
+                          <div class="item" *ngFor="let item of listnew" >
+                              <div class="item-container">
+                                  <div class="item-image _md:pt-20 _xs:pt-30">
+                                        <div class="image-ab absoluteFull">
+                                          <img src="{{this.api.URL + '/' + item.image}}" fetchpriority="high">
+                                        </div>
+                                  </div>
+                                  <div class="item-content xs:pr-15 xs:pl-15">
+                                      <div class="text-content duration-500">
+                                        <h4  class="text-title title-hover:title-red" >{{item.name}}</h4>
+                                        <p  class="text-des">{{this.data.generateDescription(item.content)}}</p>
+                                      </div>
+                                  </div>
+                                  <a class="absoluteFull" title="{{item.name}}" routerLink="/{{item.link}}"></a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- component Phân trang -->
+                        <app-pagination
+                            [totalPage]="pagination.totalPage"
+                            [currentPage]="pagination.currentPage"
+                            (pageChanged)="fetchData($event)"
+                          >
+                        </app-pagination>
+                      <!-- kết thúc component -->
+
+                      <ng-template #loading >
+                        <div class="list-item">
+                          <div *ngFor="let item of listloading" >
+                            <app-loadingnews-category></app-loadingnews-category>
+                          </div>
+                        </div>
+                    </ng-template>
+                  </div>
+                  <div class="body_2 _md:w-full">
+                      <app-hotnews ></app-hotnews>
+                      <app-adsnews [categoryId]="'6681047dc07c6d893050de49'" [title]="'TIN MỚI NHẤT'" ></app-adsnews>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

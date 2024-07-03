@@ -1,0 +1,120 @@
+<section class="newsfeed header_section_tab">
+  <div class="header_title_section_tab d-flex ">
+      <div class="left">
+        <h4>{{title}}</h4>
+      </div>
+      <div class="right" >
+        <div class="control">
+          <button title="Quay Lại" class="prev" (click)="prevpage()" *ngIf="this.pagination.totalPage >= this.pagination.currentPage && this.pagination.currentPage != 1" >
+            <span role="img" class="anticon"><svg width="1em" height="1em" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.59 12.5L8 11.09L3.42 6.5L8 1.91L6.59 0.5L0.59 6.5L6.59 12.5Z" fill="currentColor"></path></svg></span>
+          </button>
+          <button title="Kế Tiếp" class="next" (click)="nextpage()" *ngIf="this.pagination.totalPage !== this.pagination.currentPage"  >
+            <span role="img" class="anticon rotate-180"><svg width="1em" height="1em" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.59 12.5L8 11.09L3.42 6.5L8 1.91L6.59 0.5L0.59 6.5L6.59 12.5Z" fill="currentColor"></path></svg></span>
+          </button>
+        </div>
+      </div>
+  </div>
+  <div class="body_section_tab body_newsfeed">
+      <div class="body_container_section_tab">
+
+        <!-- layout config ( phân bố layout theo : layout3c , layout4c , 1box2c , 1box4c ) -->
+         <div class="layout_config_section" *ngIf="listnew.length; else loading">
+            <!-- list -->
+          <div class="article _sm:grid-cols-1 article_none" [ngClass]="{'layout4c': layout == 'layout4c', 'layout3c': layout == 'layout3c'}">
+            <div class="item" *ngFor="let item of listnew" >
+              <div class="item-container _sm:item-flex-cols-1">
+                  <div class="item-image _md:pt-20 _xs:pt-30">
+                        <div class="image-ab absoluteFull">
+                          <img src="{{this.api.URL + '/' + item.image}}" fetchpriority="high">
+                        </div>
+                  </div>
+                  <div class="item-content xs:pr-15 xs:pl-15">
+                      <div class="text-content duration-500">
+                        <h4  class="text-title title-hover:title-red" >{{item.name}}</h4>
+                        <p  class="text-des">{{this.data.generateDescription(item.content)}}</p>
+                      </div>
+                  </div>
+                  <a class="absoluteFull" title="{{item.name}}" routerLink="/{{item.link}}"></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- box + list -->
+          <div class="article box_list_article _sm:grid-cols-1 _sm:item-flex-cols-1 article_none" [ngClass]="{'layout1b2c': layout == 'layout1b2c', 'layout1b4c': layout == 'layout1b4c'}">
+              <!-- banner box article -->
+              <div class="box_article col-start-1 col-end-3 _md-col-end-auto">
+                <div class="item" style="height: 100%;" >
+                  <div class="item-container _sm:item-flex-cols-1">
+                      <div class="item-image _md:pt-20 _xs:pt-30">
+                            <div class="image-ab absoluteFull">
+                              <img src="{{this.api.URL + '/' + listnew[0].image}}" fetchpriority="high">
+                            </div>
+                      </div>
+                      <div class="item-content xs:pr-15 xs:pl-15">
+                          <div class="text-content duration-500">
+                            <h4  class="text-title text-title-box title-hover:title-red title_box_article" >{{listnew[0].name}}</h4>
+                            <p  class="text-des text-des-block">{{this.data.generateDescription(listnew[0].content)}}</p>
+                          </div>
+                      </div>
+                      <a class="absoluteFull" title="{{listnew[0].name}}" routerLink="/{{listnew[0].link}}"></a>
+                  </div>
+                </div>
+              </div>
+
+               <!-- list article -->
+              <div class="list_article _sm:grid-cols-1" >
+                <ng-container *ngIf="layout === 'layout1b2c'; then layout1b2cBlock else layout1b4cBlock"></ng-container>
+
+                <ng-template #layout1b2cBlock>
+                    <div class="item" *ngFor="let item of listnew.slice(1, 3)">
+                        <div class="item-container _sm:item-flex-cols-1">
+                            <div class="item-image _md:pt-20 _xs:pt-30">
+                                <div class="image-ab absoluteFull">
+                                    <img src="{{this.api.URL + '/' + item.image}}" fetchpriority="high">
+                                </div>
+                            </div>
+                            <div class="item-content xs:pr-15 xs:pl-15">
+                                <div class="text-content duration-500">
+                                    <h4 class="text-title title-hover:title-red">{{item.name}}</h4>
+                                    <p class="text-des">{{this.data.generateDescription(item.content)}}</p>
+                                </div>
+                            </div>
+                            <a class="absoluteFull" title="{{item.name}}" routerLink="/{{item.link}}"></a>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template #layout1b4cBlock>
+                    <div class="item" *ngFor="let item of listnew.slice(1, 5)">
+                        <div class="item-container _sm:item-flex-cols-1">
+                            <div class="item-image _md:pt-20 _xs:pt-30">
+                                <div class="image-ab absoluteFull">
+                                    <img src="{{this.api.URL + '/' + item.image}}" fetchpriority="high">
+                                </div>
+                            </div>
+                            <div class="item-content xs:pr-15 xs:pl-15">
+                                <div class="text-content duration-500">
+                                    <h4 class="text-title title-hover:title-red">{{item.name}}</h4>
+                                    <p class="text-des">{{this.data.generateDescription(item.content)}}</p>
+                                </div>
+                            </div>
+                            <a class="absoluteFull" title="{{item.name}}" routerLink="/{{item.link}}"></a>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+          </div>
+
+         </div>
+
+          <ng-template #loading >
+            <div class="article _sm:grid-cols-1">
+              <div *ngFor="let item of listloading" >
+                <app-loadingnews-box></app-loadingnews-box>
+              </div>
+            </div>
+          </ng-template>
+
+      </div>
+  </div>
+</section>

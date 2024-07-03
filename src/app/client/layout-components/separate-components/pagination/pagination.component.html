@@ -1,0 +1,24 @@
+<div class="pagination" *ngIf="totalPage && totalPage > 1 ">
+  <div class="container-pagination">
+    <ul class="list-pagination">
+      <li class="item-pagination" [class.active]="currentPage === 1" (click)="changePage(1)" *ngIf="totalPage > 3">
+        <a href="javascript:void(0)">1</a>
+      </li>
+      <li class="item-pagination" *ngIf="currentPage && currentPage > 3">
+        <span>...</span>
+      </li>
+      <li class="item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage" (click)="changePage(page)">
+        <a href="javascript:void(0)">{{ page }}</a>
+      </li>
+      <li class="item-pagination" *ngIf="currentPage && totalPage && currentPage < totalPage - 2">
+        <span>...</span>
+      </li>
+      <li class="item-pagination" [class.active]="currentPage === totalPage" (click)="changePage(totalPage!)" *ngIf="totalPage > 3">
+        <a href="javascript:void(0)">{{ totalPage }}</a>
+      </li>
+      <li class="item-pagination" [ngClass]="{'d-none': currentPage === totalPage}" (click)="changePage(currentPage! + 1)">
+        <a href="javascript:void(0)">></a>
+      </li>
+    </ul>
+  </div>
+</div>

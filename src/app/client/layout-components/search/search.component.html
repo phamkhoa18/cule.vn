@@ -1,0 +1,48 @@
+<div class="category section_pd">
+  <div class="container">
+      <div class="header_category">
+            <div class="header_category_container container">
+               <div class="d-flex align-items-center ">
+                  <div class="title_category">
+                    <h4>KẾT QUẢ TÌM KIẾM: {{this.myName}}</h4>
+                </div>
+               </div>
+            </div>
+      </div>
+      <div class="body_category">
+          <div class="body_category_container d-flex flex-wrap">
+                <div class="body_1 _md:pr-0 _md:w-full">
+                    <div class="list-item" *ngIf="listnew.length; else loading">
+                        <div class="item" *ngFor="let item of listnew" >
+                            <div class="item-container">
+                                <div class="item-image _md:pt-20 _xs:pt-30">
+                                      <div class="image-ab absoluteFull">
+                                        <img src="{{this.api.URL + '/' + item.image}}" fetchpriority="high">
+                                      </div>
+                                </div>
+                                <div class="item-content xs:pr-15 xs:pl-15">
+                                    <div class="text-content duration-500">
+                                      <h4  class="text-title title-hover:title-red" >{{item.name}}</h4>
+                                      <p  class="text-des">{{this.data.generateDescription(item.content)}}</p>
+                                    </div>
+                                </div>
+                                <a class="absoluteFull" title="{{item.name}}" routerLink="/{{item.link}}"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #loading >
+                      <div class="list-item">
+                        <div *ngFor="let item of listloading" >
+                          <app-loadingnews-category></app-loadingnews-category>
+                        </div>
+                      </div>
+                  </ng-template>
+                </div>
+                <div class="body_2 _md:w-full">
+                    <app-hotnews></app-hotnews>
+                    <app-adsnews></app-adsnews>
+                </div>
+          </div>
+      </div>
+  </div>
+</div>

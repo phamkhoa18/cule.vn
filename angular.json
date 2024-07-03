@@ -30,9 +30,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/styles/style.scss",
+              "src/assets/config_theme/css/bootstrap-icons.css",
+              "src/assets/config_theme/css/bootstrap.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "src/assets/config_theme/css/templatemo-pod-talk.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/config_theme/js/bootstrap.bundle.min.js",
+              "node_modules/owl.carousel/dist/owl.carousel.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -40,12 +50,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "100kb"
                 }
               ],
               "outputHashing": "all"
@@ -100,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cdeecb8f-c135-475f-86bd-8609a4e80ef2"
   }
 }

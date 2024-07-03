@@ -1,0 +1,52 @@
+/* Container cho cây danh mục */
+.category-tree {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Phần nội dung của mỗi node */
+.node-content {
+  display: flex;
+  align-items: center;
+}
+
+/* Biểu tượng của node */
+.node-icon {
+  margin-right: 8px;
+  color: #555;
+}
+
+/* Tên của node */
+.node-name {
+  flex-grow: 1;
+  color: #333;
+}
+
+/* Button để mở/rút các node có children */
+.toggle-button {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Icon cho button mở/rút */
+.toggle-icon {
+  color: #555;
+}
+
+/* Container chứa các children node */
+.children {
+  padding-left: 24px; /* Khoảng cách từ con đến cha */
+}
+
+/* Hiệu ứng hover và focus cho node */
+.leaf-node, .mat-nested-tree-node {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.leaf-node:hover, .mat-nested-tree-node:hover,
+.leaf-node:focus, .mat-nested-tree-node:focus {
+  background-color: #f0f0f0;
+}

@@ -1,1 +1,344 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$fontend-primary: mat.define-palette(mat.$indigo-palette);
+$fontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$fontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$fontend-theme: mat.define-light-theme((
+  color: (
+    primary: $fontend-primary,
+    accent: $fontend-accent,
+    warn: $fontend-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($fontend-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+
+@font-face {
+  font-family: 'cule-regular';
+  src: url('./assets/Montserrat-Regular.ttf');
+
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('./assets/Inter-Regular.otf');
+}
+
+@font-face {
+  font-family: 'cule-bold';
+  src: url('./assets/Montserrat-Bold.ttf');
+}
+
+
+
+*{
+  font-family: 'cule-regular';
+}
+
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1280px !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+}
+
+.container {
+  margin-left: auto;
+  max-width: 1280px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .header_section {
+        margin: 15px 0px !important;
+    }
+}
+
+.header_section {
+    --tw-space-y-reverse: 0;
+    margin-bottom: 20px;
+    --tw-shadow: 0px 0px 15px #0000001a;
+    --tw-shadow-colored: 0px 0px 15px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+
+    .header_title_section {
+      padding-bottom: 10px;
+      padding-top: 10px;
+      background: var(--gradient-barca);
+      background-size: 100% 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      h4 {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        color: rgb(255 255 255/1);
+        text-transform: uppercase;
+        font-family: 'cule-bold' !important;
+        margin: 0;
+      }
+    }
+}
+
+.item_section:last-child {
+  border-bottom: 0;
+}
+
+.item_section {
+  padding-bottom: 8px;
+  padding-top: 8px;
+  --tw-border-opacity: 1;
+  border-bottom: 1px solid;
+  border-color: rgb(240 240 240 / 1);
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+
+.title_item_section {
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    width: 35px;
+    display: flex;
+}
+
+.text-black-3 {
+  --tw-text-opacity: 1;
+  color: rgb(41 41 41 / var(--tw-text-opacity));
+}
+
+.text-leading{
+  line-height: 32px;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.italic {
+  font-style: italic;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+.font-notoR {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.line-clamp-3 {
+display: -webkit-box;
+overflow: hidden;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+}
+
+.content_item_section {
+h3 {
+    line-height: 1.4;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+    font-family: 'cule-bold' !important;
+}
+}
+}
+
+.item_section:hover {
+.group-hover\:text-red {
+  background: linear-gradient(90deg, #cd122d 0, #154284);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+}
+
+
+
+.body_section {
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 8px;
+}
+
+// section tabnews
+
+@media screen and (max-width: 1200px) {
+  .header_section_tab {
+      margin: 15px 0px !important;
+  }
+}
+
+@media screen and (max-width: 750px) {
+    .header_title_section_tab {
+      padding-bottom: 6px !important;
+      padding-top: 6px !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+
+      h4 {
+        font-size: 17px !important;
+      }
+    }
+}
+
+.header_section_tab {
+  --tw-space-y-reverse: 0;
+  margin-bottom: 20px;
+  --tw-shadow-colored: 0px 0px 15px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 4px;
+
+  .header_title_section_tab {
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+    align-items : center ;
+    background: var(--gradient-barca);
+    background-size: cover;
+    background-position: right center;
+    justify-content: space-between;
+    h4 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      color: rgb(255 255 255/1);
+      text-transform: uppercase;
+      font-family: 'cule-bold' !important;
+      margin: 0;
+    }
+  }
+}
+
+.item_section_tab:last-child {
+border-bottom: 0;
+}
+
+.item_section_tab {
+padding-bottom: 8px;
+padding-top: 8px;
+--tw-border-opacity: 1;
+border-bottom: 1px solid;
+border-color: rgb(240 240 240 / 1);
+gap: 15px;
+align-items: center;
+cursor: pointer;
+display: flex;
+position: relative;
+
+.title_item_section_tab {
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+  width: 35px;
+  display: flex;
+}
+
+.text-black-3 {
+--tw-text-opacity: 1;
+color: rgb(41 41 41 / var(--tw-text-opacity));
+}
+
+.text-leading{
+line-height: 32px;
+font-size: 30px;
+margin-bottom: 0;
+}
+.italic {
+font-style: italic;
+}
+.font-bold {
+font-weight: 700;
+}
+
+.font-notoR {
+font-family: 'Times New Roman', Times, serif !important;
+}
+.line-clamp-3 {
+display: -webkit-box;
+overflow: hidden;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+}
+
+.content_item_section_tab {
+h3 {
+  line-height: 1.4;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+  font-family: 'cule-bold' !important;
+}
+}
+}
+
+.item_section_tab:hover {
+.group-hover\:text-red {
+  background: linear-gradient(90deg, #cd122d 0, #154284);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+}
+
+
+
+.absoluteFull {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.section_pd {
+  padding: 50px 0px;
+}
+
+
+:root {
+  --gradient-barca :  linear-gradient(90deg, #cd122d 0, #154284);
+  --hover-text : #fdc52c ;
+}
+
+
+.absoluteFull {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

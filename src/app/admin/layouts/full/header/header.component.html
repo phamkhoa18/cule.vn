@@ -1,0 +1,7 @@
+
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5 p-0 d-flex jc-c align-items-center">
+  <img src="../../../../../assets/barca.png" alt="user" class="profile-pic"> </button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item (click)="getItem()">Sign Out </button>
+</mat-menu>
+
